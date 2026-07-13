@@ -1,0 +1,58 @@
+Copyright (c) 2026 DarklyStudios (dklyntly)
+All Rights Reserved, with limited Minecraft modpack permissions.
+
+This repository and its contents, including but not limited to source code,
+assets, configs, documentation, data files, textures, models, generated
+artifacts, and any other files, are made publicly viewable solely for:
+
+  - Bug tracking and issue reporting
+  - Community feedback and discussion
+  - Reference by users of the mod
+  - Compatibility review by Minecraft modpack authors
+
+This license applies to this mod and all associated files, across any game
+or platform it is released for.
+
+PERMITTED USE:
+  - This mod MAY be included and used in private Minecraft modpacks.
+  - This mod MAY be included and used in public Minecraft modpacks.
+  - Minecraft modpack authors MAY configure, override, patch, or extend this
+    mod's behavior only as part of a Minecraft modpack, including through
+    configs, recipes, datapacks, KubeJS/CraftTweaker-style scripts, resource
+    packs, tags, generated data, and similar pack-level integration files.
+  - Minecraft modpack authors MAY provide their own resources for pack-level
+    integration, including their own textures, models, lang files, data files,
+    scripts, and compatibility assets, provided those resources do not copy or
+    redistribute this mod's original resources except as expressly allowed here.
+  - This mod's own files MAY be redistributed unmodified as part of a Minecraft
+    modpack.
+  - Forking or cloning this repository for the purpose of submitting bug fixes,
+    pull requests, or contributions back to this repository is permitted.
+
+MODPACK MODIFICATION LIMITS:
+  - Modified versions of this mod may only be distributed as part of a Minecraft
+    modpack, and only when the modifications are necessary for that modpack's
+    compatibility, balance, configuration, or integration.
+  - Modified versions of this mod may not be distributed as a standalone mod,
+    replacement mod, fork, reupload, or separate project without prior written
+    permission from the copyright holder.
+  - Pack-level modifications must not falsely imply that they are official
+    releases from DarklyStudios unless explicitly approved.
+  - This mod's original source code, textures, models, sounds, lang files,
+    documentation, and other resources may not be copied into another project or
+    used as the basis for a separate mod without prior written permission.
+  - Resource overrides in a Minecraft modpack should use the pack author's own
+    resources or normal Minecraft/Forge override mechanisms. Do not extract,
+    edit, and redistribute this mod's original resources outside the modpack
+    context.
+
+No other permission, express or implied, is granted to any person to copy,
+modify, merge, publish, redistribute, reupload, repackage, decompile for
+redistribution, or sell this mod or its contents, in whole or in part, for any
+purpose other than as described above, without prior written consent from the
+copyright holder.
+
+All rights not expressly granted herein are reserved.
+
+For licensing inquiries or permission requests, contact:
+darklystudios@outlook.com
