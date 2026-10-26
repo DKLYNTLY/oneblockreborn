@@ -1,8 +1,19 @@
-# OneBlock Reborn
+<h1 align="center">One Block Re:forged</h1>
 
 OneBlock Reborn is a Forge OneBlock mod built for modpacks. It provides a native OneBlock progression system, built-in phases, custom datapack phases, custom trader pools, saved Origin Blocks, and pack-developer commands for testing phase balance.
 
-## Quick Start
+<p align="center"><a href="https://www.curseforge.com/minecraft/mc-mods/one-block-reforged">Download on CurseForge</a> · <a href="https://discord.com/invite/mUGHmQxHG8">Discord</a> · <a href="https://github.com/DKLYNTLY/oneblockreborn">GitHub source</a></p>
+
+## What you can do
+
+- Mine an Origin Block through built-in progression phases.
+- Add custom blocks, mobs, loot, and trader pools with datapack JSON.
+- Validate and test phases with pack-developer commands.
+
+<details>
+<summary><strong>Install, update, and check compatibility</strong></summary>
+
+### Quick Start
 
 Place an Origin Block, break the generated block, and the OneBlock will keep generating new entries from the current phase.
 
@@ -20,7 +31,12 @@ Custom trader pool files go here:
 data/<namespace>/oneblockreborn/trader_pools/<pool>.json
 ```
 
-## Commands
+</details>
+
+<details>
+<summary><strong>Play: controls, commands, and progression</strong></summary>
+
+### Commands
 
 Anyone can run:
 
@@ -55,7 +71,9 @@ Useful examples:
 /oneblockreborn dev held phase 1500
 ```
 
-## Built-In Phase Timeline
+---
+
+### Built-In Phase Timeline
 
 | Mined blocks | Phase |
 | ---: | --- |
@@ -72,7 +90,48 @@ Useful examples:
 
 Use `/oneblockreborn dev phases` in-game to see the loaded timeline, including custom phases.
 
-## Custom Phase JSON
+---
+
+### Mob Spawning Behavior
+
+When a mob entry is selected:
+
+1. The entity is created from its resource ID.
+2. Optional NBT is applied.
+3. The mob is moved to the block above the OneBlock.
+4. The mob gets the tag `oneblockreborn.phase_spawn`.
+5. The mob is silenced if `muteSpawnedMobs` is enabled.
+6. The mob is recorded for visiting trader mob crate release.
+7. Mob achievements are granted if enabled and an advancement exists.
+8. If the OneBlock position is empty after the mob spawn, it is filled with grass.
+
+The native mob replacement system only affects mobs tagged with `oneblockreborn.phase_spawn`.
+
+---
+
+### Built-In Mobs
+
+| Mined blocks | Built-in mobs added |
+| ---: | --- |
+| 0 | None |
+| 30 | None |
+| 150 | None |
+| 300 | Chicken, pig |
+| 750 | Chicken, pig, cow, sheep |
+| 1500 | Chicken, pig, cow, sheep, wolf, cat |
+| 2000 | None |
+| 2500 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
+| 3500 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
+| 5000 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
+
+Custom phases can add any valid entity ID from Minecraft or installed mods.
+
+</details>
+
+<details>
+<summary><strong>Configure and customize</strong></summary>
+
+### Custom Phase JSON
 
 A phase JSON file defines when the phase starts, what it is called, and what can generate from the OneBlock.
 
@@ -103,7 +162,9 @@ Basic example:
 
 If a custom phase uses the same `starts_at` as a built-in phase, it replaces that phase at that start point.
 
-## Entry Types
+---
+
+### Entry Types
 
 ### Block Entry
 
@@ -129,7 +190,9 @@ This places a chest and assigns the loot table.
 
 Mob entries spawn the mob above the OneBlock, tag it as a OneBlock phase spawn, optionally silence it through config, record it for mob crate release, and grant matching mob advancements when available.
 
-## Mob Count, NBT, And Conditions
+---
+
+### Mob Count, NBT, And Conditions
 
 Mob entries can include a count range, NBT, and conditions.
 
@@ -174,7 +237,9 @@ Supported conditions:
 
 If an entry's conditions do not match, it is skipped for that roll. If no entries match, the OneBlock falls back to stone.
 
-## Guaranteed Entries
+---
+
+### Guaranteed Entries
 
 Guaranteed entries trigger at exact mined-block counts and override the normal random roll.
 
@@ -192,7 +257,9 @@ Guaranteed entries trigger at exact mined-block counts and override the normal r
 }
 ```
 
-## Stage Actions
+---
+
+### Stage Actions
 
 Stage actions run when a phase is first reached.
 
@@ -221,7 +288,9 @@ Supported stage actions:
 | `build_end_portal` | Builds the configured compact end portal if native end portal handling is enabled. |
 | `message` | Sends a message to nearby players. Supports `%X%`, `%Y%`, `%Z%`, and `%Level%`. |
 
-## How Weights Work
+---
+
+### How Weights Work
 
 Each entry has a `weight`. Higher weight means more common.
 
@@ -248,39 +317,9 @@ Use this command to simulate the phase:
 /oneblockreborn dev phase sample <startsAt> <rolls>
 ```
 
-## Mob Spawning Behavior
+---
 
-When a mob entry is selected:
-
-1. The entity is created from its resource ID.
-2. Optional NBT is applied.
-3. The mob is moved to the block above the OneBlock.
-4. The mob gets the tag `oneblockreborn.phase_spawn`.
-5. The mob is silenced if `muteSpawnedMobs` is enabled.
-6. The mob is recorded for visiting trader mob crate release.
-7. Mob achievements are granted if enabled and an advancement exists.
-8. If the OneBlock position is empty after the mob spawn, it is filled with grass.
-
-The native mob replacement system only affects mobs tagged with `oneblockreborn.phase_spawn`.
-
-## Built-In Mobs
-
-| Mined blocks | Built-in mobs added |
-| ---: | --- |
-| 0 | None |
-| 30 | None |
-| 150 | None |
-| 300 | Chicken, pig |
-| 750 | Chicken, pig, cow, sheep |
-| 1500 | Chicken, pig, cow, sheep, wolf, cat |
-| 2000 | None |
-| 2500 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
-| 3500 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
-| 5000 | Chicken, pig, cow, sheep, wolf, cat, llama, goat, horse, donkey, fox |
-
-Custom phases can add any valid entity ID from Minecraft or installed mods.
-
-## Trader Pools
+### Trader Pools
 
 Trader pools let packs override stage and visiting trader offers.
 
@@ -306,7 +345,9 @@ stage_5000
 
 Use matching names for custom stages, such as `stage_6000`.
 
-## Pack-Dev Testing Workflow
+---
+
+### Pack-Dev Testing Workflow
 
 1. Add or edit custom phase JSON in your datapack.
 2. Reload datapacks.
@@ -342,7 +383,9 @@ Use matching names for custom stages, such as `stage_6000`.
 
 8. Place the Origin Block and play-test the phase.
 
-## Full Custom Phase Example
+---
+
+### Full Custom Phase Example
 
 ```json
 {
@@ -385,7 +428,40 @@ Use matching names for custom stages, such as `stage_6000`.
 }
 ```
 
-## Troubleshooting
+---
+
+### Config Notes
+
+Several systems can be enabled or disabled in the common config, including:
+
+- native stage actions
+- native stage traders
+- native world border
+- native end portal handling
+- visiting traders
+- expanded mob crates
+- native mob achievements
+- bossbar progress display
+- mob replacement
+- trial system
+
+Pack authors should test custom phases with the same config values their modpack will ship.
+
+</details>
+
+<details>
+<summary><strong>Backups and recovery</strong></summary>
+
+### Before updating
+
+*Back up your world and configuration files before updating or changing settings. Keep a working copy of the old instance until you have checked the new setup.*
+
+</details>
+
+<details>
+<summary><strong>Troubleshooting, logs, and technical details</strong></summary>
+
+### Troubleshooting
 
 Run validation first:
 
@@ -404,19 +480,31 @@ Common issues:
 | Chances feel wrong | Run `/oneblockreborn dev phase preview <startsAt>` and `/oneblockreborn dev phase sample <startsAt> <rolls>`. |
 | Trader has default trades | Make sure the trader pool file name matches the stage, such as `stage_6000.json`. |
 
-## Config Notes
+</details>
 
-Several systems can be enabled or disabled in the common config, including:
+<details>
+<summary><strong>About this project</strong></summary>
 
-- native stage actions
-- native stage traders
-- native world border
-- native end portal handling
-- visiting traders
-- expanded mob crates
-- native mob achievements
-- bossbar progress display
-- mob replacement
-- trial system
+### Credits
 
-Pack authors should test custom phases with the same config values their modpack will ship.
+I took inspiration from the original [OneBlock world and datapack](https://www.curseforge.com/minecraft/worlds/oneblock). I wrote this mod’s code, assets, and data from scratch; it does not bundle files from that datapack.
+
+---
+
+### Author and links
+
+I create and maintain One Block Re:forged as **Dnydd (formerly known as dklyntly)**.
+
+[Official CurseForge page](https://www.curseforge.com/minecraft/mc-mods/one-block-reforged) · [Discord](https://discord.com/invite/mUGHmQxHG8)
+
+### License
+
+Read [LICENSE](LICENSE) for this branch’s terms. Permissions granted with earlier releases remain in effect.
+
+</details>
+
+## Support my work
+
+If you enjoy my projects, you can leave a tip on Ko-fi. Support is always optional.
+
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A3G129JCLF)
